@@ -1,4 +1,4 @@
-package com.github.henriquefdesouza.nivel;
+package com.github.henriquefdesouza.excecoes;
 
 public class NivelInvalidoException extends RuntimeException {
 
