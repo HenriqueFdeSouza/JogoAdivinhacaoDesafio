@@ -4,11 +4,13 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Usuario {
+    Scanner sc = new Scanner(System.in);
 
     private String nickName;
 
-    public Usuario(String nickName) {
-        setNickName(nickName);
+    public Usuario() {
+        System.out.print("Digite seu nick: ");
+        setNickName(sc.nextLine());
     }
 
     public String getNickName() {

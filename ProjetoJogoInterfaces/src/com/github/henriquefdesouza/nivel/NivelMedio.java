@@ -1,67 +1,17 @@
 package com.github.henriquefdesouza.nivel;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class NivelMedio implements Nivel {
 
-    public static final int CHANCES_NIVEL_MEDIO = 8;
-
-    private int numeroAleatorioGerado;
-    private int numeroEscolhidoPeloUsuario;
-
-    public void setNumeroAleatorioGerado(int numeroAleatorioGerado) {
-        this.numeroAleatorioGerado = numeroAleatorioGerado;
-    }
-
-    public int getNumeroEscolhidoPeloUsuario() {
-        return numeroEscolhidoPeloUsuario;
-    }
-
-    public void setNumeroEscolhidoPeloUsuario(int numeroEscolhidoPeloUsuario) {
-        this.numeroEscolhidoPeloUsuario = numeroEscolhidoPeloUsuario;
-    }
+    private final int CHANCES_NIVEL_MEDIO = 8;
 
     @Override
-    public int getNumeroAleatorioGerado() {
-        return numeroAleatorioGerado;
+    public int getNivel() {
+        return CHANCES_NIVEL_MEDIO;
     }
 
     @Override
     public int getLimiteMaximoGerado() {
-        int limiteMaximo = 20;
-        return limiteMaximo;
-    }
-
-    @Override
-    public int gerarNumeroAleatorio() {
-        Random random = new Random();
-        int limiteMaximoGerado = getLimiteMaximoGerado();
-        setNumeroAleatorioGerado(random.nextInt(limiteMaximoGerado));
-        System.out.println("Número Gerado!");
-        return getNumeroAleatorioGerado();
-    }
-
-
-    @Override
-    public void gerarChancesUsuario() {
-        Scanner sc = new Scanner(System.in);
-        imprimirNivelCorrespondente();
-
-        for (int i = 0; i < CHANCES_NIVEL_MEDIO; i++) {
-            System.out.print("Digite o " + (i + 1) + " Número: ");
-            setNumeroEscolhidoPeloUsuario(sc.nextInt());
-            if (verificarNumeroUsuario()) {
-                break;
-            }
-            if (getNumeroEscolhidoPeloUsuario() > getLimiteMaximoGerado()) {
-                System.out.println("Você perdeu uma chance pois digitou um número maior que o gerado!");
-            }
-        }
-    }
-
-    public boolean verificarNumeroUsuario() {
-        return getNumeroEscolhidoPeloUsuario() == getNumeroAleatorioGerado();
+        return 20;
     }
 
     public void imprimirNivelCorrespondente() {
